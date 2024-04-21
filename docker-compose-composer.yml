@@ -1,0 +1,9 @@
+services:
+  composer:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile-composer
+    restart: "no"
+    command: tail -F anything
+    networks:
+      - default

@@ -1,0 +1,4 @@
+FROM composer:lts
+
+COPY ./composer.json composer.json
+COPY ./composer.lock composer.lock

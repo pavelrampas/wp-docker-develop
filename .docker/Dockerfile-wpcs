@@ -1,0 +1,14 @@
+FROM php:8.2-cli
+
+COPY ./composer.json /usr/src/wp-develop/composer.json
+COPY ./composer.lock /usr/src/wp-develop/composer.lock
+
+# Set your folders.
+COPY ./themes/mytheme /usr/src/wp-develop/mytheme
+
+WORKDIR /usr/src/wp-develop
+
+RUN apt-get update && apt-get install -y zip unzip git
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --ignore-platform-reqs

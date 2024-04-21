@@ -1,0 +1,15 @@
+services:
+    wpcs:
+        build:
+            context: .
+            dockerfile: .docker/Dockerfile-wpcs
+        volumes:
+            - ./themes/mytheme:/usr/src/wp-develop/mytheme
+        tty: true
+        command: /bin/sh -c "composer install --ignore-platform-reqs && tail -F anything"
+        networks:
+            - wpcs_network
+
+networks:
+  wpcs_network:
+    name: wpcs_network
