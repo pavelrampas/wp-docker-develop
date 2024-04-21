@@ -48,8 +48,8 @@ cli-composer: ## Run shell inside local composer container
 	docker compose -f docker-compose-composer.yml exec composer bash
 
 cp-composer: ## Copy composer.json and composer.lock files from composer container to host
-	docker cp wp-develop-composer-1:/app/composer.json .
-	docker cp wp-develop-composer-1:/app/composer.lock .
+	docker cp wp-docker-develop-composer-1:/app/composer.json .
+	docker cp wp-docker-develop-composer-1:/app/composer.lock .
 
 update-composer: ## Run composer update inside composer container + copy composer.lock to host
 	docker compose -f docker-compose-composer.yml exec composer composer update --no-scripts --ignore-platform-reqs
