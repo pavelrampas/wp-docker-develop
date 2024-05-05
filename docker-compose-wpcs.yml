@@ -6,7 +6,7 @@ services:
         volumes:
             - ./themes/mytheme:/usr/src/wp-develop/mytheme
         tty: true
-        command: /bin/sh -c "composer install --ignore-platform-reqs && tail -F anything"
+        command: /bin/sh -c "COMPOSER_ALLOW_SUPERUSER=1 composer install --ignore-platform-reqs && tail -F anything"
         networks:
             - wpcs_network
 

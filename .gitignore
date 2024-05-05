@@ -4,3 +4,8 @@ nbproject
 
 # Configuration
 .env
+
+# Folders
+plugins
+themes
+uploads

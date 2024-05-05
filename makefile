@@ -18,10 +18,10 @@ cli-wpcs: ## Run shell inside local wpcs container
 	docker compose -f docker-compose-wpcs.yml exec wpcs bash
 
 format-check: ## Check code with wp-coding-standards
-	docker compose -f docker-compose-wpcs.yml exec wpcs vendor/bin/phpcs --standard=WordPress --extensions=php --ignore=*/vendor/* ./ -s
+	docker compose -f docker-compose-wpcs.yml exec wpcs vendor/bin/phpcs --standard=WordPress --extensions=php --ignore=*/vendor/*,*/wordpress/* ./ -s
 
 format-fix: ## Fix code with wp-coding-standards
-	docker compose -f docker-compose-wpcs.yml exec wpcs vendor/bin/phpcbf --standard=WordPress --extensions=php --ignore=*/vendor/* ./
+	docker compose -f docker-compose-wpcs.yml exec wpcs vendor/bin/phpcbf --standard=WordPress --extensions=php --ignore=*/vendor/*,*/wordpress/* --ignore=*/wordpress/* ./
 
 run-dev: ## Run local wp development
 	docker compose up --build -d
